@@ -1,90 +1,215 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-bs-theme="auto">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>CV - Tu Nombre</title>
+  <title>CV / Tu Nombre</title>
+
+  <!-- Bootstrap 5.3 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+  <!-- AOS (animaciones on-scroll) -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
   <style>
-    body {
-      background-color: #f8f9fa;
+    /* -----  Variables + tema oscuro/claro  ----- */
+    :root{
+      --grad-1:#667eea;
+      --grad-2:#764ba2;
     }
-    .cv-header {
-      background-color: #0d6efd;
-      color: white;
-      padding: 2rem 0;
+    [data-bs-theme="dark"]{
+      --grad-1:#3a3a3a;
+      --grad-2:#1e1e1e;
     }
-    .cv-section {
-      margin-bottom: 2rem;
+
+    /* -----  Fondo animado  ----- */
+    body{
+      background:linear-gradient(-45deg, var(--grad-1), var(--grad-2), #23a6d5, #23d5ab);
+      background-size:400% 400%;
+      animation:gradientBG 15s ease infinite;
+      color:#fff;
+    }
+    @keyframes gradientBG{
+      0%{background-position:0% 50%;}
+      50%{background-position:100% 50%;}
+      100%{background-position:0% 50%;}
+    }
+
+    /* -----  Glass-card  ----- */
+    .glass{
+      background:rgba(255,255,255,.1);
+      backdrop-filter:blur(10px);
+      border:1px solid rgba(255,255,255,.2);
+      border-radius:1rem;
+      padding:2rem;
+      margin-bottom:2rem;
+    }
+    [data-bs-theme="dark"] .glass{
+      background:rgba(0,0,0,.2);
+      border:1px solid rgba(255,255,255,.1);
+    }
+
+    /* -----  Hero  ----- */
+    .hero img{
+      width:160px;
+      height:160px;
+      object-fit:cover;
+      border:4px solid rgba(255,255,255,.3);
+    }
+
+    /* -----  Timeline  ----- */
+    .timeline{
+      border-left:3px solid rgba(255,255,255,.5);
+      padding-left:1.5rem;
+    }
+    .timeline-item{
+      position:relative;
+      margin-bottom:1.5rem;
+    }
+    .timeline-item::before{
+      content:'';
+      position:absolute;
+      left:-1.5rem;
+      top:0;
+      width:15px;
+      height:15px;
+      border-radius:50%;
+      background:#fff;
+      border:3px solid var(--grad-1);
+    }
+
+    /* -----  Botón flotante PDF  ----- */
+    .btn-float{
+      position:fixed;
+      bottom:2rem;
+      right:2rem;
+      border-radius:50%;
+      width:60px;
+      height:60px;
+      display:grid;
+      place-items:center;
+      font-size:1.5rem;
+      box-shadow:0 4px 15px rgba(0,0,0,.25);
     }
   </style>
 </head>
+
 <body>
+  <!-- Hero -->
+  <section class="hero d-flex align-items-center flex-column text-center py-5">
+    <img src="https://i.pravatar.cc/160?img=3" class="rounded-circle shadow mb-3" alt="avatar" data-aos="zoom-in">
+    <h1 class="fw-bold" data-aos="fade-up">Tu Nombre</h1>
+    <p class="lead" data-aos="fade-up" data-aos-delay="100">Full-Stack Developer | UI/UX Enthusiast</p>
+    <div class="d-flex gap-3 fs-4" data-aos="fade-up" data-aos-delay="200">
+      <a href="mailto:tucorreo@ejemplo.com" class="link-light"><i class="bi bi-envelope-fill"></i></a>
+      <a href="https://linkedin.com/in/tuusuario" target="_blank" class="link-light"><i class="bi bi-linkedin"></i></a>
+      <a href="https://github.com/tuusuario" target="_blank" class="link-light"><i class="bi bi-github"></i></a>
+      <a href="https://wa.me/54911xxxxxxxx" target="_blank" class="link-light"><i class="bi bi-whatsapp"></i></a>
+    </div>
+  </section>
 
-  <header class="cv-header text-center">
-    <div class="container">
-      <img src="https://via.placeholder.com/150" class="rounded-circle mb-3" alt="Foto de perfil">
-      <h1 class="mb-1">Tu Nombre Completo</h1>
-      <p class="lead">Desarrollador/a Web Full Stack</p>
-      <div class="d-flex justify-content-center gap-3">
-        <a href="mailto:tucorreo@ejemplo.com" class="text-white"><i class="bi bi-envelope"></i> Email</a>
-        <a href="https://linkedin.com/in/tuusuario" target="_blank" class="text-white"><i class="bi bi-linkedin"></i> LinkedIn</a>
-        <a href="https://github.com/tuusuario" target="_blank" class="text-white"><i class="bi bi-github"></i> GitHub</a>
+  <!-- About -->
+  <section class="container glass" data-aos="fade-up">
+    <h2 class="mb-3"><i class="bi bi-person-heart"></i> About me</h2>
+    <p>Apasionado del código limpio y los productos bellos. +5 años trabajando en equipos ágiles, creando webs y apps que escalan y enamoran.</p>
+  </section>
+
+  <!-- Skills -->
+  <section class="container glass" data-aos="fade-up">
+    <h2 class="mb-3"><i class="bi bi-lightning-fill"></i> Skills</h2>
+    <div class="row">
+      <div class="col-6 col-md-3 mb-2"><span class="badge bg-light text-dark w-100 py-2">React</span></div>
+      <div class="col-6 col-md-3 mb-2"><span class="badge bg-light text-dark w-100 py-2">Next.js</span></div>
+      <div class="col-6 col-md-3 mb-2"><span class="badge bg-light text-dark w-100 py-2">Node</span></div>
+      <div class="col-6 col-md-3 mb-2"><span class="badge bg-light text-dark w-100 py-2">TypeScript</span></div>
+      <div class="col-6 col-md-3 mb-2"><span class="badge bg-light text-dark w-100 py-2">Tailwind</span></div>
+      <div class="col-6 col-md-3 mb-2"><span class="badge bg-light text-dark w-100 py-2">MongoDB</span></div>
+      <div class="col-6 col-md-3 mb-2"><span class="badge bg-light text-dark w-100 py-2">Docker</span></div>
+      <div class="col-6 col-md-3 mb-2"><span class="badge bg-light text-dark w-100 py-2">Git</span></div>
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section class="container glass" data-aos="fade-up">
+    <h2 class="mb-3"><i class="bi bi-briefcase-fill"></i> Experience</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <h5 class="mb-0">Senior Frontend Developer – XYZ Corp</h5>
+        <small class="text-light">2021 – Presente</small>
+        <p>Lideré la migración de Angular a React, reduciendo el bundle en 35 %.</p>
+      </div>
+      <div class="timeline-item">
+        <h5 class="mb-0">Full-Stack Developer – Freelance</h5>
+        <small class="text-light">2019 – 2021</small>
+        <p>Desarrollé +10 aplicaciones web con MERN stack para clientes de EE.UU. y Europa.</p>
       </div>
     </div>
-  </header>
+  </section>
 
-  <main class="container my-5">
-    <section class="cv-section">
-      <h2><i class="bi bi-person-lines-fill"></i> Sobre mí</h2>
-      <p>Desarrollador/a apasionado/a con experiencia en tecnologías modernas como React, Node.js y bases de datos SQL/NoSQL. Me gusta trabajar en equipo y resolver problemas complejos.</p>
-    </section>
+  <!-- Education -->
+  <section class="container glass" data-aos="fade-up">
+    <h2 class="mb-3"><i class="bi bi-mortarboard-fill"></i> Education</h2>
+    <p class="mb-1"><strong>Ingeniería en Sistemas</strong> – Universidad Nacional del Sur (2015-2020)</p>
+    <p class="mb-0"><strong>Bootcamp Full-Stack</strong> – Platzi / Coderhouse (2018)</p>
+  </section>
 
-    <section class="cv-section">
-      <h2><i class="bi bi-tools"></i> Habilidades</h2>
-      <div class="row">
-        <div class="col-md-6">
-          <ul class="list-unstyled">
-            <li><i class="bi bi-check-circle-fill text-primary"></i> JavaScript / TypeScript</li>
-            <li><i class="bi bi-check-circle-fill text-primary"></i> React, Next.js</li>
-            <li><i class="bi bi-check-circle-fill text-primary"></i> Node.js, Express</li>
-          </ul>
-        </div>
-        <div class="col-md-6">
-          <ul class="list-unstyled">
-            <li><i class="bi bi-check-circle-fill text-primary"></i> Bootstrap, CSS, Sass</li>
-            <li><i class="bi bi-check-circle-fill text-primary"></i> Git, GitHub</li>
-            <li><i class="bi bi-check-circle-fill text-primary"></i> Inglés avanzado</li>
-          </ul>
+  <!-- Projects (opcional) -->
+  <section class="container glass" data-aos="fade-up">
+    <h2 class="mb-3"><i class="bi bi-kanban"></i> Featured Projects</h2>
+    <div class="row g-3">
+      <div class="col-md-4">
+        <div class="card h-100">
+          <div class="card-body">
+            <h6 class="card-title">E-commerce API</h6>
+            <p class="small">Node + Mongo + JWT + Stripe</p>
+            <a href="https://github.com/tuusuario/ecommerce-api" target="_blank" class="btn btn-sm btn-outline-primary">Repo</a>
+          </div>
         </div>
       </div>
-    </section>
-
-    <section class="cv-section">
-      <h2><i class="bi bi-briefcase-fill"></i> Experiencia</h2>
-      <div class="mb-3">
-        <h5>Desarrollador/a Web – Empresa XYZ</h5>
-        <p class="text-muted">2021 – Presente</p>
-        <ul>
-          <li>Desarrollo de aplicaciones web con React y Node.js</li>
-          <li>Integración con APIs REST y bases de datos MongoDB</li>
-        </ul>
+      <div class="col-md-4">
+        <div class="card h-100">
+          <div class="card-body">
+            <h6 class="card-title">Weather APP</h6>
+            <p class="small">React + OpenWeather + Mapbox</p>
+            <a href="https://github.com/tuusuario/weather-app" target="_blank" class="btn btn-sm btn-outline-primary">Repo</a>
+          </div>
+        </div>
       </div>
-    </section>
-
-    <section class="cv-section">
-      <h2><i class="bi bi-mortarboard-fill"></i> Educación</h2>
-      <p><strong>Ingeniería en Sistemas</strong> – Universidad Nacional de Tecnología (2015 – 2020)</p>
-    </section>
-  </main>
-
-  <footer class="bg-light text-center py-3">
-    <div class="container">
-      <small class="text-muted">© 2025 Tu Nombre. CV generado con Bootstrap.</small>
+      <div class="col-md-4">
+        <div class="card h-100">
+          <div class="card-body">
+            <h6 class="card-title">Portfolio v2</h6>
+            <p class="small">Next.js + Three.js + Framer</p>
+            <a href="https://github.com/tuusuario/portfolio-v2" target="_blank" class="btn btn-sm btn-outline-primary">Repo</a>
+          </div>
+        </div>
+      </div>
     </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="text-center py-4">
+    <small class="text-light">Hecho con ❤️ y Bootstrap 5 – © 2025 Tu Nombre</small>
   </footer>
 
+  <!-- Botón flotante PDF -->
+  <a href="cv.pdf" class="btn btn-light btn-float" title="Descargar PDF">
+    <i class="bi bi-file-earmark-arrow-down"></i>
+  </a>
+
+  <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({once:true,offset:60});
+
+    /* -----  Detectar preferencia de color  ----- */
+    const html=document.documentElement;
+    const preferencia=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';
+    html.setAttribute('data-bs-theme', preferencia);
+  </script>
 </body>
 </html>

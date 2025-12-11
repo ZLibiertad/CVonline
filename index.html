@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>CV / Tu Nombre</title>
+  <title>CV / Ezequiel</title>
 
   <!-- Bootstrap 5.3 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -11,98 +11,19 @@
   <!-- Icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
-  <!-- AOS (animaciones on-scroll) -->
+  <!-- AOS -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-  <style>
-    /* -----  Variables + tema oscuro/claro  ----- */
-    :root{
-      --grad-1:#00c9a7;   /* verde aqua brillante */
-      --grad-2:#048a81;   /* verde bosque profundo */
-    }
-    [data-bs-theme="dark"]{
-      --grad-1:#004d40;
-      --grad-2:#00251a;
-    }
-
-    /* -----  Fondo animado  ----- */
-    body{
-      background:linear-gradient(-45deg, var(--grad-1), var(--grad-2), #23a6d5, #23d5ab);
-      background-size:400% 400%;
-      animation:gradientBG 15s ease infinite;
-      color:#fff;
-    }
-    @keyframes gradientBG{
-      0%{background-position:0% 50%;}
-      50%{background-position:100% 50%;}
-      100%{background-position:0% 50%;}
-    }
-
-    /* -----  Glass-card  ----- */
-    .glass{
-      background:rgba(255,255,255,.1);
-      backdrop-filter:blur(10px);
-      border:1px solid rgba(255,255,255,.2);
-      border-radius:1rem;
-      padding:2rem;
-      margin-bottom:2rem;
-    }
-    [data-bs-theme="dark"] .glass{
-      background:rgba(0,0,0,.2);
-      border:1px solid rgba(255,255,255,.1);
-    }
-
-    /* -----  Hero  ----- */
-    .hero img{
-      width:160px;
-      height:160px;
-      object-fit:cover;
-      border:4px solid rgba(255,255,255,.3);
-    }
-
-    /* -----  Timeline  ----- */
-    .timeline{
-      border-left:3px solid rgba(255,255,255,.5);
-      padding-left:1.5rem;
-    }
-    .timeline-item{
-      position:relative;
-      margin-bottom:1.5rem;
-    }
-    .timeline-item::before{
-      content:'';
-      position:absolute;
-      left:-1.5rem;
-      top:0;
-      width:15px;
-      height:15px;
-      border-radius:50%;
-      background:#fff;
-      border:3px solid var(--grad-1);
-    }
-
-    /* -----  Botón flotante PDF  ----- */
-    .btn-float{
-      position:fixed;
-      bottom:2rem;
-      right:2rem;
-      border-radius:50%;
-      width:60px;
-      height:60px;
-      display:grid;
-      place-items:center;
-      font-size:1.5rem;
-      box-shadow:0 4px 15px rgba(0,0,0,.25);
-    }
-  </style>
+  <!-- CSS personalizado -->
+  <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
   <!-- Hero -->
   <section class="hero d-flex align-items-center flex-column text-center py-5">
     <img src="https://i.pravatar.cc/160?img=3" class="rounded-circle shadow mb-3" alt="avatar" data-aos="zoom-in">
-    <h1 class="fw-bold" data-aos="fade-up">Ezequiel Freiheit</h1>
-    <p class="lead" data-aos="fade-up" data-aos-delay="100">Full-Stack Developer | UI/UX Enthusiast</p>
+    <h1 class="fw-bold" data-aos="fade-up">Ezequiel</h1>
+    <p class="lead" data-aos="fade-up" data-aos-delay="100">Estudiante 6° año Escuela Tecnica | Futuro Ingeniero en Sistemas UTN</p>
     <div class="d-flex gap-3 fs-4" data-aos="fade-up" data-aos-delay="200">
       <a href="mailto:zequi.ahau@gmail.com" class="link-light"><i class="bi bi-envelope-fill"></i></a>
       <a href="https://linkedin.com/in/tuusuario" target="_blank" class="link-light"><i class="bi bi-linkedin"></i></a>
@@ -152,7 +73,7 @@
   <!-- Education -->
   <section class="container glass" data-aos="fade-up">
     <h2 class="mb-3"><i class="bi bi-mortarboard-fill"></i> Education</h2>
-    <p class="mb-1"><strong>Técnico en Computación</strong> – Escuela Técnica N° 35 (2024-2026)</p>
+    <p class="mb-1"><strong>Escuela Técnica N° 35 en Computación</strong> – Eduardo Latzina (2024-2026)</p>
     <p class="mb-0"><em>Proyecto destacado:</em> <strong>CompostAR</strong> – app RA que clasifica residuos en tiempo real; ganó mención en la feria de ciencias local.</p>
     <p class="mb-0 mt-2"><strong>Ingeniería en Sistemas</strong> – UTN (inicio previsto 2027)</p>
   </section>
@@ -165,7 +86,7 @@
         <div class="card h-100">
           <div class="card-body">
             <h6 class="card-title">CompostAR</h6>
-            <p class="small">MindAR + A-Frame / Ar.js</p>
+            <p class="small">A-Frame + AR.js / MindAR </p>
             <p class="small">RA que enseña a separar residuos. Redujo contaminación orgánica 30 % en pruebas piloto.</p>
             <a href="https://zlibiertad.github.io/Compostate2/" target="_blank" class="btn btn-sm btn-outline-primary">Repo</a>
           </div>
@@ -205,13 +126,6 @@
   <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-    AOS.init({once:true,offset:60});
-
-    /* -----  Detectar preferencia de color  ----- */
-    const html=document.documentElement;
-    const preferencia=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';
-    html.setAttribute('data-bs-theme', preferencia);
-  </script>
+  <script src="scripts.js"></script>
 </body>
 </html>
